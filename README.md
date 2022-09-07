@@ -1,4 +1,4 @@
-# Thuma Code Challenge
+# Code Challenge
 
 Welcome to the Thuma Take Home Interview! The purpose of this exercise is to gauge your capacity to dive into a (mostly) working system and make modifications and extentions to it. The tasks are meant to be straightforward, with most people completing the tasks in less than 30 minutes. You may take as long as needed to complete the tasks, we're not keeping track. If you have any initial questions after reading this prompt, please reach out.
 
