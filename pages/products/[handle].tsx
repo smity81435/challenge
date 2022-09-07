@@ -50,7 +50,7 @@ export default function ProductPage({ handle, setCartVisible }: Props) {
 
     return (
         <>
-            <h1>{capitalizeFirstLetter(handle)} product page</h1>
+            <h1 style={globals.pageHeader}>{capitalizeFirstLetter(handle)} product page</h1>
             <div style={globals.centerText}>
                 <img src="https://via.placeholder.com/300x200" alt="placeholder" />
             </div>

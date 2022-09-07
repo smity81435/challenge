@@ -12,4 +12,8 @@ export const globals = {
         boxShadow: '0px 2px 3px 0px rgba(200,200,200,.5)',
     },
     shadow: { boxShadow: '0px 2px 3px 0px rgba(200,200,200,.5)' },
+    pageHeader: {
+        fontWeight: 300,
+        textAlign: 'center',
+    },
 }

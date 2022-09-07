@@ -28,5 +28,21 @@ The application currently has 3 routes (/, /products/bed, /products/mattress) wh
 
 ## Documentation / Resources
 
-- [Next Documentation](https://nextjs.org/docs/getting-started)
-- [React Documentation](https://reactjs.org/docs/getting-started.html)
+-   [Next Documentation](https://nextjs.org/docs/getting-started)
+-   [React Documentation](https://reactjs.org/docs/getting-started.html)
+
+## Doug's Changes
+
+-   Convert JS to TS
+-   Add `Remove` Button on cart items.
+-   Fix `Add To Cart` Functionality.
+-   Added `Nightstand` product.
+-   Converted Cart to drawer and added toggle in navbar.
+-   Light styling on navbar.
+-   light styling in cart.
+-   light styling of `Add To Cart` button.
+-   Cleaned up API folder.
+-   Moved inline styles to style objects.
+-   Created `styles/globals.tsx` stylesheet for re-used styles.
+-   Typed "Product" and "Cart"
+-   Created `Utilities/typography.tsx`
