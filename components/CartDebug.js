@@ -1,5 +1,5 @@
 import { getRandomCart } from "../api/cart";
-import { CloseButton } from "./CloseButton";
+import CloseButton from "./CloseButton";
 import { globals } from "../styles/globals";
 
 export default function CartDebug({ visible, setCartVisible, cart, setCart }) {

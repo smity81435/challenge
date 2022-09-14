@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getCartOfSize } from "../api/cart";
-import CartDebug from "../components/CartDrawer";
+import CartDebug from "../components/CartDebug";
 import Nav from "../components/Nav";
 import CartContext from "../contexts/CartContext";
 import { useSessionStorageCart } from "../hooks/useSessionStorageCart";
@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }) {
   const [cartVisible, setCartVisible] = useState(false);
   return (
     <div style={{ fontFamily: "sans-serif" }}>
-      <CartContext.Provider value={{ cartItems, setCartItems }}>
+      <CartContext.Provider value={{ cart, setCart }}>
         <Nav cartVisible={cartVisible} setCartVisible={setCartVisible} />
         <CartDebug
           visible={cartVisible}
