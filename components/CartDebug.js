@@ -1,31 +1,30 @@
-import React from 'react';
-import { getRandomCart } from '../api/cart';
-import { CloseButton } from './CloseButton';
-import { globals } from '../styles/globals';
+import { getRandomCart } from "../api/cart";
+import { CloseButton } from "./CloseButton";
+import { globals } from "../styles/globals";
 
-export default function CartDebug({ visible, setCartVisible, cartItems, setCartItems }) {
+export default function CartDebug({ visible, setCartVisible, cart, setCart }) {
   const removeItem = (cart, index) => {
     return cart.filter((value, arrIndex) => index !== arrIndex);
   };
 
   return (
-    <div style={{ ...styles.cartContainer, right: visible ? 0 : '-25em' }}>
+    <div style={{ ...styles.cartContainer, right: visible ? 0 : "-25em" }}>
       <CloseButton style={styles.closeButton} onClick={() => setCartVisible(false)} />
       <p style={styles.cartHeader}>Your Cart</p>
       <ul suppressHydrationWarning style={styles.cartItems}>
-        {cartItems.length === 0 ? (
+        {cart.length === 0 ? (
           <li suppressHydrationWarning>The Cart is Empty</li>
         ) : (
-          cartItems.map((cartItem, index) => (
+          cart.map((cartItem, index) => (
             <li key={index} style={styles.cartItem} suppressHydrationWarning>
               {`${cartItem.name} -- ${Object.keys(cartItem.variation)
                 .map((key) => cartItem.variation[key])
-                .join(' + ')} `}
+                .join(" + ")} `}
               <div
                 className="clickable"
                 aria-label="remove item"
                 style={styles.removeButton}
-                onClick={() => setCartItems(removeItem(cartItems, index))}
+                onClick={() => setCart(removeItem(cart, index))}
               >
                 Remove
               </div>
@@ -39,7 +38,7 @@ export default function CartDebug({ visible, setCartVisible, cartItems, setCartI
         <button
           className="clickable"
           style={globals.primaryButton}
-          onClick={() => setCartItems(getRandomCart())}
+          onClick={() => setCart(getRandomCart())}
         >
           Random Cart
           <span role="img" aria-label="randomize cart">
@@ -53,52 +52,52 @@ export default function CartDebug({ visible, setCartVisible, cartItems, setCartI
 
 const styles = {
   cartContainer: {
-    position: 'absolute',
-    background: 'white',
+    position: "absolute",
+    background: "white",
     top: 0,
-    boxShadow: '0px 3px 3px 0px rgb(200,200,200)',
+    boxShadow: "0px 3px 3px 0px rgb(200,200,200)",
     borderRight: 0,
-    padding: '1em',
-    minWidth: '17em',
-    height: '100vh',
+    padding: "1em",
+    minWidth: "17em",
+    height: "100vh",
     zIndex: 2,
-    transition: 'all 1s',
+    transition: "all 1s"
   },
   closeButton: {
-    position: 'absolute',
-    top: '1em',
-    left: '1em',
+    position: "absolute",
+    top: "1em",
+    left: "1em"
   },
   cartItems: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    padding: '1em 2em',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    padding: "1em 2em",
     margin: 0,
-    backgroundColor: 'linear',
+    backgroundColor: "linear"
   },
   cartItem: {
-    display: 'flex',
-    backgroundColor: 'rgba(250,250,250)',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: '10px',
-    margin: '10px',
-    borderRadius: '5px',
-    boxShadow: '0px 3px 3px 0px rgb(200,200,200)',
+    display: "flex",
+    backgroundColor: "rgba(250,250,250)",
+    justifyContent: "space-between",
+    width: "100%",
+    padding: "10px",
+    margin: "10px",
+    borderRadius: "5px",
+    boxShadow: "0px 3px 3px 0px rgb(200,200,200)"
   },
   removeButton: {
-    fontSize: '14px',
-    color: 'rgb(150,150,150)',
+    fontSize: "14px",
+    color: "rgb(150,150,150)"
   },
   cartHeader: {
-    textAlign: 'center',
-    fontSize: '18px',
+    textAlign: "center",
+    fontSize: "18px"
   },
   generateCartButton: {
-    background: 'transparent',
-    padding: '1em 2em',
-    border: '1px solid gray',
-  },
+    background: "transparent",
+    padding: "1em 2em",
+    border: "1px solid gray"
+  }
 };

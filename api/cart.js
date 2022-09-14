@@ -6,8 +6,8 @@ const bedColors = variationChoices.color;
 
 function getRandomItem() {
   return productConstructors.bed({
-    size: bedSizes.size[getRandomInt(bedSizes.length)],
-    color: bedColors.color[getRandomInt(bedColors.length)],
+    size: bedSizes[getRandomInt(bedSizes.length)],
+    color: bedColors[getRandomInt(bedColors.length)]
   });
 }
 

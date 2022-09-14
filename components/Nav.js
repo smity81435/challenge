@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { products } from '../api/products';
-import CartContext from '../contexts/CartContext';
-import { capitalizeFirstLetter } from '../Utilities/typography';
+import Link from "next/link";
+import React, { useContext } from "react";
+import { products } from "../api/products";
+import CartContext from "../contexts/CartContext";
+import { capitalizeFirstLetter } from "../Utilities/typography";
 
-export function Nav({ cartVisible, setCartVisible }) {
+export default function Nav({ cartVisible, setCartVisible }) {
   const cart = useContext(CartContext);
   return (
     <>
@@ -25,9 +25,8 @@ export function Nav({ cartVisible, setCartVisible }) {
             ))}
           </nav>
         </div>
-
         <div className="clickable" onClick={() => setCartVisible(!cartVisible)}>
-          Cart {`${cart.cartItems.length > 0 ? `(${cart.cartItems.length})` : ''}`}
+          Cart {`${cart.cart.length > 0 ? `(${cart.cart.length})` : ""}`}
         </div>
       </div>
       <hr />
@@ -37,11 +36,11 @@ export function Nav({ cartVisible, setCartVisible }) {
 
 const styles = {
   navContainer: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
-    justifyContent: 'space-between',
-    padding: '1rem',
+    justifyContent: "space-between",
+    padding: "1rem"
   },
-  navList: { display: 'flex', justifyContent: 'space-around' },
-  navLink: { marginRight: '1em' },
+  navList: { display: "flex", justifyContent: "space-around" },
+  navLink: { marginRight: "1em" }
 };

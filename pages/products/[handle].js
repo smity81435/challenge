@@ -1,8 +1,8 @@
-import React, { useMemo, useState, useContext } from 'react';
-import { productVariation, products, variationChoices } from '../../api/products';
-import CartContext from '../../contexts/CartContext';
-import { globals } from '../../styles/globals';
-import { capitalizeFirstLetter } from '../../Utilities/typography';
+import { useMemo, useState, useContext } from "react";
+import { productVariation, products, variationChoices } from "../../api/products";
+import CartContext from "../../contexts/CartContext";
+import { globals } from "../../styles/globals";
+import { capitalizeFirstLetter } from "../../Utilities/typography";
 
 export default function ProductPage({ handle, setCartVisible }) {
   const attributes = useMemo(() => {
@@ -14,15 +14,15 @@ export default function ProductPage({ handle, setCartVisible }) {
 
   const [chosenVariant, setChosenVariant] = useState({ name: handle, variation: {} });
 
-  const onValueChange = (attributeKey, attributeValue) => {
+  function onValueChange(attributeKey, attributeValue) {
     setChosenVariant((oldVariant) => ({
       ...oldVariant,
       variation: {
         ...oldVariant.variation,
-        [attributeKey]: attributeValue,
-      },
+        [attributeKey]: attributeValue
+      }
     }));
-  };
+  }
 
   const cart = useContext(CartContext);
   const [error, setError] = useState();
@@ -39,7 +39,7 @@ export default function ProductPage({ handle, setCartVisible }) {
       setCartVisible(true);
       setTimeout(() => setCartVisible(false), 5000);
     } else {
-      onError('Please select a variation.');
+      onError("Please select a variation.");
     }
   };
 
@@ -54,7 +54,7 @@ export default function ProductPage({ handle, setCartVisible }) {
           const attributeValuePicker = attributes[attributeKey].map((attributeValue) => (
             <label key={attributeValue} style={{ lineHeight: 2 }}>
               <input
-                checked={chosenVariant['variation'][attributeKey] === attributeValue}
+                checked={chosenVariant["variation"][attributeKey] === attributeValue}
                 type="radio"
                 name={attributeKey}
                 value={attributeValue}
@@ -95,18 +95,18 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   return {
     paths: products.map((handle) => ({
-      params: { handle },
+      params: { handle }
     })),
-    fallback: false,
+    fallback: false
   };
 }
 
 const styles = {
   attributeTitle: {
-    textAlign: 'center',
-    textTransform: 'capitalize',
-    textDecoration: 'underline',
+    textAlign: "center",
+    textTransform: "capitalize",
+    textDecoration: "underline"
   },
-  attributeValue: { display: 'flex', flexDirection: 'column' },
-  addToCartContainer: { textAlign: 'center', marginTop: '2em' },
+  attributeValue: { display: "flex", flexDirection: "column" },
+  addToCartContainer: { textAlign: "center", marginTop: "2em" }
 };
