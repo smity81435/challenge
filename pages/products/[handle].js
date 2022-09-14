@@ -1,17 +1,12 @@
 import React, { useMemo, useState, useContext } from 'react'
-import { productVariation, products, variationChoices, Product } from '../../api/products'
+import { productVariation, products, variationChoices } from '../../api/products'
 import CartContext from '../../contexts/CartContext'
 import { globals } from '../../styles/globals'
 import { capitalizeFirstLetter } from '../../Utilities/typography'
 
-type Props = {
-    handle: string
-    setCartVisible: (boolean) => void
-}
-
-export default function ProductPage({ handle, setCartVisible }: Props) {
+export default function ProductPage({ handle, setCartVisible }) {
     const cart = useContext(CartContext)
-    const [error, setError] = useState<string | null>()
+    const [error, setError] = useState()
 
     const attributes = useMemo(() => {
         return productVariation[handle].reduce((acc, variationKey) => {
@@ -20,7 +15,7 @@ export default function ProductPage({ handle, setCartVisible }: Props) {
         }, {})
     }, [handle])
 
-    const [chosenVariant, setChosenVariant] = useState<Product>({ name: handle, variation: {} })
+    const [chosenVariant, setChosenVariant] = useState({ name: handle, variation: {} })
 
     const onValueChange = (attributeKey, attributeValue) => {
         setChosenVariant((oldVariant) => ({
@@ -32,12 +27,12 @@ export default function ProductPage({ handle, setCartVisible }: Props) {
         }))
     }
 
-    const onError: (string) => void = (text) => {
+    const onError = (text) => {
         setError(text)
         setTimeout(() => setError(null), 5000)
     }
 
-    const handleAddToCart: (Product) => void = (item) => {
+    const handleAddToCart = (item) => {
         if (Object.keys(chosenVariant.variation).length === Object.keys(attributes).length) {
             const updatedInventory = cart.cartItems.concat(item)
             cart.setCartItems(updatedInventory)

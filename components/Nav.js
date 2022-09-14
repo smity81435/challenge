@@ -4,12 +4,7 @@ import { products } from '../api/products'
 import CartContext from '../contexts/CartContext'
 import { capitalizeFirstLetter } from '../Utilities/typography'
 
-type Props = {
-    cartVisible: boolean
-    setCartVisible: (boolean) => void
-}
-
-export const Nav = ({ cartVisible, setCartVisible }: Props) => {
+export const Nav = ({ cartVisible, setCartVisible }) => {
     const cart = useContext(CartContext)
     return (
         <>

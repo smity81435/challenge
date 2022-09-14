@@ -1,17 +1,10 @@
 import React from 'react'
-import { getRandomCart, Cart } from '../api/cart'
+import { getRandomCart } from '../api/cart'
 import { CloseButton } from './CloseButton'
 import { globals } from '../styles/globals'
 
-type Props = {
-    visible: boolean
-    setCartVisible: (boolean) => void
-    cartItems: Cart
-    setCartItems: (Cart) => void
-}
-
-export const CartDrawer = ({ visible, setCartVisible, cartItems, setCartItems }: Props) => {
-    const removeItem: (cart: Cart, index: number) => Cart = (cart, index) => {
+export const CartDrawer = ({ visible, setCartVisible, cartItems, setCartItems }) => {
+    const removeItem = (cart, index) => {
         return cart.filter((value, arrIndex) => index !== arrIndex)
     }
 
