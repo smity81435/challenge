@@ -1,6 +1,3 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-export default createContext({
-    cartItems: [],
-    setCartItems: () => {},
-})
+export default createContext({ cart: [], setCart: () => {} });
