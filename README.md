@@ -33,7 +33,6 @@ The application currently has 3 routes (/, /products/bed, /products/mattress) wh
 
 ## Doug's Changes
 
--   Convert JS to TS
 -   Add `Remove` Button on cart items.
 -   Fix `Add To Cart` Functionality.
 -   Added `Nightstand` product.
@@ -43,6 +42,5 @@ The application currently has 3 routes (/, /products/bed, /products/mattress) wh
 -   light styling of `Add To Cart` button.
 -   Cleaned up API folder.
 -   Moved inline styles to style objects.
--   Created `styles/globals.tsx` stylesheet for re-used styles.
--   Typed "Product" and "Cart"
--   Created `Utilities/typography.tsx`
+-   Created `styles/globals.js` stylesheet for re-used styles.
+-   Created `Utilities/typography.js`
